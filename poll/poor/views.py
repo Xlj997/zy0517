@@ -12,8 +12,9 @@ from .models import vote,option
 def list(request):
 
     a = vote.objects.all()
+    # print(a)
 
-    return render(request, 'p/list.html', {'a':a})
+    return render(request, 'p/list.html', {'a': a})
 
 def tp(request,id):
     # print(id)
@@ -49,3 +50,19 @@ def xp(request,id):
 
 
     return render(request, 'p/xp.html', {'a': a, 'b': b})
+
+
+def tj(request):
+    if request.method == 'POST':
+        a = vote(problem=request.POST.get('wt'))
+        a.save()
+        for i in request.POST.getlist('xx'):
+            option(name=i, number=0, vote=a).save()
+        #     print(i)
+        #
+        #
+        # print(request.POST.get('wt'))
+        # print(request.POST.getlist('xx'))
+        return render(request, 'p/list.html', )
+    a = [1,2]
+    return render(request, 'p/tj.html', {'a':a})

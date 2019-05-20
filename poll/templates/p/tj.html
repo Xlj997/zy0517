@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加</title>
+</head>
+<body>
+
+    <h2>这什么都不是</h2>
+
+    <form action="{% url 'poor:tj' %}" method="post">
+
+        请输入问题:<input type="text" name="wt"> <br>
+        {% for i in a %}
+            请输入第{{ forloop.counter }}个选项:<input type="text" name="xx"> <br>
+        {% empty %}
+            <li>没有对象</li>
+        {% endfor %}
+
+
+
+
+
+
+        <br>
+        <input type="submit" name="提交">
+
+
+
+
+    </form>
+
+</body>
+</html>

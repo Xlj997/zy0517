@@ -5,12 +5,17 @@
     <title>列表页</title>
 </head>
 <body>
+
+
     <h2>投票首页</h2>
     <h3>请选择问题</h3>
+
+    <a href="{% url 'poor:tj' %}">添加问题</a>
     <ul>
          {% if a %}
             {% for i in a %}
-            <li>
+                    {# 在for循环里面是循环计数 #}
+            <li>{{ forloop.counter }}
                 <a href="{% url 'poor:tp' i.id %}">{{ i }}</a>
             </li>
             {% empty %}
