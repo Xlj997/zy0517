@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表页</title>
+</head>
+<body>
+    <h2>投票首页</h2>
+    <h3>请选择问题</h3>
+    <ul>
+         {% if a %}
+            {% for i in a %}
+            <li>
+                <a href="{% url 'poor:tp' i.id %}">{{ i }}</a>
+            </li>
+            {% empty %}
+            没有问题
+            {% endfor %}
+
+         {% else %}
+         没有问题
+         {% endif %}
+
+    </ul>
+
+
+</body>
+</html>

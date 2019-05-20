@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>请选择</h2>
+
+     {% if a %}
+        <form action="{% url 'poor:tp' b %}" method="post">
+
+            {% for i in a %}
+                <input type="radio" name="ai" value="{{ i }}">{{ i }}
+
+                <br>
+            {% empty %}
+            没有问题
+            {% endfor %}
+            <br>
+            <input type="submit" name="投票">
+
+        </form>
+
+
+     {% else %}
+     没有问题
+     {% endif %}
+
+<a href="/a/list/">返回首页</a>
+</body>
+</html>
+
+
+
+
