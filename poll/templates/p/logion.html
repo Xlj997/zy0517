@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册/登陆</title>
+</head>
+<body>
+    <form action="{% url 'poor:logion' %}" method="post">
+
+        <h2>请注册/登陆</h2>
+
+        请输入账号:<input type="text" name="zh"> <br>
+        请输入密码:<input type="text" name="pwd"> <br>
+        <input type="submit" name="zhuce" value="注册">
+        <input type="submit" name="denglu" value="登陆">
+
+
+    </form>
+
+
+
+
+
+
+</body>
+</html>

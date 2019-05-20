@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^list/$', views.list, name='list'),
     url(r'^xp/(\d+)/$', views.xp, name='xp'),
     url(r'^tj//$', views.tj, name='tj'),
+    url(r'^logion/$', views.logion, name='logion'),
 
 ]

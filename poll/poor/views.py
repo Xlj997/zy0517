@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect,reverse
 from django.http import HttpResponse,HttpResponseRedirect
-from .models import vote,option
+from .models import vote, option, user
 # Create your views here.
 # mvt中的v  可以是视图函数  也可以是视图类
 
@@ -17,11 +17,6 @@ def list(request):
     return render(request, 'p/list.html', {'a': a})
 
 def tp(request,id):
-    # print(id)
-    # print(request.method)
-    # for i in dir(request):
-    #
-    #     print(i)
 
     if request.method == 'GET':
 
@@ -65,4 +60,37 @@ def tj(request):
         # print(request.POST.getlist('xx'))
         return render(request, 'p/list.html', )
     a = [1,2]
-    return render(request, 'p/tj.html', {'a':a})
+    return render(request, 'p/tj.html', {'a': a})
+
+
+
+def logion(request):
+    if request.method == 'POST':
+        zh = request.POST.get('zh')
+        pwd = request.POST.get('pwd')
+        print(zh)
+        user1 = user.objects.filter(username=zh)
+        print(user1)
+        aaa = request.POST.get('zhuce')
+        print(aaa)
+        if aaa == '注册':
+            a1 = '注册失败'
+            if len(user1) == 0:
+                a1 = '注册成功'
+                if zh[0] == ':':
+                    user(username=zh[1:], pwd=pwd, root=1).save()
+                    return redirect(reverse('poor:logion'), args=locals())
+                user(username=zh, pwd=pwd, root=0).save()
+                return redirect(reverse('poor:logion'), args=locals())
+            print(locals())
+            return redirect(reverse('poor:logion'))
+
+
+        if pwd == user1[0].pwd:
+             # request.session['name']=zh
+
+            return redirect(reverse('poor:list'), args=locals())
+        return redirect(reverse('poor:logion'))
+
+
+    return render(request,'p/logion.html')

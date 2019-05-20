@@ -38,4 +38,12 @@ class option(models.Model):
         return self.name
 
 
+class user(models.Model):
+    username = models.CharField(max_length=30, verbose_name='用户名')
+    pwd = models.CharField(max_length=30, verbose_name='密码')
+    root = models.CharField(max_length=30, verbose_name='管理员')
+
+    def __str__(self):
+        return self.username
+
 
