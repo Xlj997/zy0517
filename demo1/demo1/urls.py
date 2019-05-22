@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from django.conf.urls import url,include
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url('blog/', include('blog.urls',namespace='blog')),
+    url('comments/', include('comments.urls',namespace='comments')),
 ]
