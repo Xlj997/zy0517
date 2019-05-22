@@ -11,7 +11,7 @@ from django.db import models
 # 每个类必须继承于models.Model
 
 
-
+# 创建问题模板类
 class vote(models.Model):
     # 问题是字符串   最大长度为100
     problem = models.CharField(max_length=100,verbose_name='问题')
@@ -21,7 +21,7 @@ class vote(models.Model):
     def __str__(self):
         return self.problem
 
-
+# 创建选项模板类
 class option(models.Model):
     # 字符串最大长度为30
     name = models.CharField(max_length=30,verbose_name='选项')
@@ -37,12 +37,16 @@ class option(models.Model):
     def __str__(self):
         return self.name
 
-
+# 创建用户模板类
 class user(models.Model):
+    # 用户名 最大长度为30
     username = models.CharField(max_length=30, verbose_name='用户名')
+    # 密码  最大长度为30
     pwd = models.CharField(max_length=30, verbose_name='密码')
+    # 管理员表示  如果值是1表示是管理员 如果是0表示不是管理员
     root = models.CharField(max_length=30, verbose_name='管理员')
 
+    # 打印模型
     def __str__(self):
         return self.username
 

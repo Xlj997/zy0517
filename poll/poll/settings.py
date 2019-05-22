@@ -154,3 +154,46 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+
+#
+# # 设置使用redis缓存session
+# # 使用条件  第一个电脑上要装redis数据库
+# # 第二格   要安装django-redis-sessions模块  安装代码   pip install django-redis-sessions
+# SESSION_ENGINE = 'redis_sessions.session'
+#
+# # 连接的数据库ip
+# SESSION_REDIS_HOST = 'localhost'
+#
+# # 连接数据库的端口号
+# SESSION_REDIS_PORT = 6379
+#
+# # redis里面有十六个数据库  从零开始 你选择呢一个
+# SESSION_REDIS_DB = 0
+#
+# # redis数据库的密码  如果没有可以不写
+# SESSION_REDIS_PASSWORD = ''
+#
+# # 数据库前缀
+# SESSION_REDIS_PREFIX = 'session'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
