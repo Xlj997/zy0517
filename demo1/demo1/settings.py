@@ -159,6 +159,12 @@ DEFAULT_FROM_EMAIL = 'zzy0371 <18137128152@163.com>'
 
 
 
+HAYSTACK_CONNECTIONS = {
+'default': {
+'ENGINE': 应用名.whoosh_cn_backend.WhooshEngine',
+'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+}
+}
 
 
 
