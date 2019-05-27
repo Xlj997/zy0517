@@ -52,7 +52,7 @@
                             <li class="cl-effect-11"><a href="{% url 'blog:index' %}" data-hover="首页">首页</a></li>
                             <li class="cl-effect-11"><a href="full-width.html" data-hover="博客">博客</a></li>
                             <li class="cl-effect-11"><a href="about.html" data-hover="关于">关于</a></li>
-                            <li class="cl-effect-11"><a href="{% url 'blog:contactus' %}" data-hover="联系">联系</a></li>
+                            <li class="cl-effect-11"><a href="{% url 'blog:contacts' %}" data-hover="联系">联系</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </nav>
@@ -77,9 +77,13 @@
         <div class="row">
 
             <main class="col-md-8">
-            {% block left %}
 
-            {% endblock %}
+
+
+
+                {% block left %}
+
+                {% endblock %}
             </main>
             <aside class="col-md-4">
                 {% block toc %}
@@ -90,12 +94,12 @@
                     <ul>
                         {% getlatestarticles as latestarticles %}
                         {% for latestarticle in latestarticles %}
-                         
+
                         <li>
                             <a href="{% url 'blog:single' latestarticle.id %}">{{ latestarticle.title }}</a>
                         </li>
                         {% empty %}
-                            <li>还没有文章</li>
+                        <li>还没有文章</li>
                         {% endfor %}
 
                     </ul>
@@ -107,10 +111,11 @@
                         {% for archive in archives %}
 
                         <li>
-                        <a href="{% url 'blog:archives' archive.year archive.month %}">{{ archive.year }} 年 {{ archive.month }} 月</a>
+                            <a href="{% url 'blog:archives' archive.year archive.month %}">{{ archive.year }} 年 {{
+                                archive.month }} 月</a>
                         </li>
                         {% empty %}
-                            <li>没有对象</li>
+                        <li>没有对象</li>
                         {% endfor %}
 
 
@@ -125,12 +130,12 @@
                         {% getcategorys as categorys %}
                         {% for category in categorys %}
                         <li>
-                            <a href="{% url 'blog:category' category.id %}">{{ category.title }}<span class="post-count">({{ category.article_set.count }})</span></a>
+                            <a href="{% url 'blog:category' category.id %}">{{ category.title }}<span
+                                    class="post-count">({{ category.article_set.count }})</span></a>
                         </li>
 
                         {% endfor %}
 
-                        
 
                     </ul>
                 </div>
@@ -138,20 +143,18 @@
                 <div class="widget widget-tag-cloud">
                     <h3 class="widget-title">标签云</h3>
                     <ul>
-                        
+
                         {% gettags as tags %}
                         {% for tag in tags %}
-                        
+
                         <li>
                             <a href="{% url 'blog:tag' tag.id %}">{{ tag.title }}</a>
                         </li>
                         {% empty %}
-                            <li>没有标签</li>
+                        <li>没有标签</li>
                         {% endfor %}
-                        
-                        
-                        
-                        
+
+
                     </ul>
                 </div>
                 <div class="rss">
@@ -161,7 +164,6 @@
         </div>
     </div>
 </div>
-
 
 
 <footer id="site-footer">

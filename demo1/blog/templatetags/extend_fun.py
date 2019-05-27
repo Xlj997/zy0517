@@ -1,6 +1,6 @@
 # 导入这个类   这个类为了注册标签或者过滤器
 from django import template
-from ..models import Article,Category,Tag
+from ..models import Article,Category,Tag,ADS
 register =template.Library()
 
 # 定义过滤器
@@ -48,6 +48,10 @@ def gettags():
     return Tag.objects.all()
 
 
+@register.simple_tag
+def getads():
+    print(ADS.objects.all()[0].img)
+    return ADS.objects.all()
 
 
 

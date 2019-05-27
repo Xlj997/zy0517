@@ -18,4 +18,8 @@ urlpatterns = [
     #注册路由
     url(r'^zc/$', views.zc, name='zc'),
 
+    url(r'^checkuser/$', views.checkuser, name='checkuser'),
+
+
+
 ]

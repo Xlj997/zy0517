@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,reverse
-from django.http import HttpResponse,HttpResponseRedirect
+from django.http import HttpResponse,HttpResponseRedirect,JsonResponse
 from .models import vote, option, user
 # Create your views here.
 # mvt中的v  可以是视图函数  也可以是视图类
@@ -178,3 +178,18 @@ def logion(request):
 def zc(request):
     if request.method=='POST':
         pass
+
+
+
+
+def checkuser(request):
+
+    if request.method == 'POST':
+
+        username = request.POST.get('username')
+        if user.objects.filter(username=username).first():
+
+
+            return JsonResponse({'state':1})
+        else:
+            return JsonResponse({'state':0,'error':'用户名不存在'})
